@@ -5,7 +5,7 @@ import Card from "./components/Card.jsx";
 import Filter from "./components/Filter";
 import Search from "./components/Search";
 import Modal from "./components/Modal.jsx";
-import paises from "./data.js";
+import paises from "./getData.js";
 import "./App.css";
 
 function App() {
