@@ -1,6 +1,7 @@
 export default function Search({ setSearch }) {
   const handleSearchChange = (e) => {
-    setSearch(e.target.value);
+    const search = e.target.value; 
+    setSearch(search.toLowerCase());
   };
 
   return (
