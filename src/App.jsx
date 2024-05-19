@@ -8,13 +8,23 @@ import Modal from "./components/Modal.jsx";
 import paises from "./getData.js";
 import "./App.css";
 
+/**
+ * The main application component.
+ * @returns {JSX.Element} The rendered application.
+ */
 function App() {
+  // State variables
   const [countries, setCountries] = useState(paises);
   const [filter, setFilter] = useState("all");
   const [search, setSearch] = useState("");
   const [modal, setModal] = useState(false);
   const [countrySelect, setCountrySelect] = useState("");
 
+  /**
+   * Filters countries based on the given region.
+   * @param {string} region - The region to filter by.
+   * @returns {Array} The filtered countries.
+   */
   const filterRegion = (region) => {
     if (region === "all") {
       return paises;
@@ -25,28 +35,37 @@ function App() {
     return filterCountries;
   };
 
-  const searchCountry = (search,currentCountries) => {
+  /**
+   * Filters countries based on the given search.
+   * @param {string} search - The search to filter by.
+   * @param {Array} currentCountries - The current countries.
+   * @returns {Array} The filtered countries.
+   */
+  const searchCountry = (search, currentCountries) => {
     const filterCountries = currentCountries.filter((country) =>
       country.name.toLowerCase().startsWith(search)
     );
     return filterCountries;
   };
 
+  // Effect hook to update countries based on filter and search changes
   useEffect(() => {
-    const newRegion = filter
+    const newRegion = filter;
     const newCountriesReg = filterRegion(newRegion);
-    if (search !== ""){
+    if (search !== "") {
       const newCountries = searchCountry(search, newCountriesReg);
       setCountries([...newCountries]);
-    }else{
+    } else {
       setCountries([...newCountriesReg]);
     }
-  }, [filter,search]);
+  }, [filter, search]);
 
+  // Function to open the modal
   const openModal = () => {
     setModal(true);
   };
 
+  //Function to handle country selection
   const handleSelecCountry = (idCountry) => {
     setCountrySelect(idCountry);
   };

@@ -28,14 +28,28 @@ const options = [
   },
 ];
 
+/**
+ * A functional component that renders a dropdown filter for selecting a region.
+ * @param {Object} props - The component's props.
+ * @param {Function} props.setFilter - A function to set the filter value.
+ * @returns {JSX.Element} - The rendered dropdown filter component.
+ */
 export default function Filter({ setFilter }) {
+  // state variables
   const [show, setShow] = useState(false);
   const [filterName, setFilterName] = useState("Filter by Region");
 
+  /**
+   * A function to toggle the visibility of the dropdown options.
+   */
   const handleShow = () => {
     setShow(!show);
   };
 
+  /**
+   * A function to handle the selection of a filter option.
+   * @param {Object} option - The selected filter option.
+   */
   const handleFilterChange = (Option) => {
     setFilterName(Option);
     setShow(false);

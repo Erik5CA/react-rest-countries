@@ -1,6 +1,21 @@
+/**
+ * A functional component that renders a search bar with an icon and a placeholder.
+ * It also handles the search input change and updates the search state.
+ *
+ * @param {Object} props - The component's props.
+ * @param {Function} props.setSearch - A function to update the search state.
+ *
+ * @returns {JSX.Element} - The rendered search bar component.
+ */
 export default function Search({ setSearch }) {
+  /**
+   * Handles the change event of the search input.
+   * Updates the search state with the lowercase value of the input.
+   *
+   * @param {SyntheticEvent} e - The change event.
+   */
   const handleSearchChange = (e) => {
-    const search = e.target.value; 
+    const search = e.target.value;
     setSearch(search.toLowerCase());
   };
 

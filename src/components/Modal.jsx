@@ -1,8 +1,20 @@
 /* eslint-disable react/prop-types */
+
+/**
+ * This function represents a modal component that displays detailed information about a country.
+ * @param {Object} props - The properties passed to the component.
+ * @param {Function} props.onClose - A function to close the modal.
+ * @param {Object} props.country - The country object containing the details to be displayed.
+ * @returns {JSX.Element} - The JSX element representing the modal component.
+ */
 export default function Modal({ onClose, country }) {
+  /**
+   * This function closes the modal when called.
+   */
   const closeModal = () => {
     onClose(false);
   };
+
   return (
     <div className="modal-overlay" onClick={closeModal}>
       <div className="modal" onClick={(e) => e.stopPropagation()}>

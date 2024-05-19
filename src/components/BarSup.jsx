@@ -1,50 +1,35 @@
 import { useState } from "react";
+import { DarkIcon, LightIcon } from "./Icons";
 
+/**
+ * This is the main component for the BarSup.
+ * It displays the title of the application and a toggle button for switching between light and dark themes.
+ *
+ * @returns {JSX.Element} - The JSX element for the BarSup component.
+ */
 export default function BarSup() {
+  /**
+   * The state variable to hold the current theme mode.
+   * It can be either "Dark" or "Light".
+   */
   const [theme, setTheme] = useState("Dark");
 
+  /**
+   * This function is called when the user clicks on the theme toggle button.
+   * It toggles the theme mode between "Dark" and "Light" and updates the corresponding CSS class.
+   */
   const changeTheme = () => {
     const root = document.body;
     root.classList.toggle("light");
     setTheme(theme === "Dark" ? "Light" : "Dark");
   };
+
   return (
     <section className="container-barra element">
       <div className="barra ">
         <h1 className="title">Where in the World?</h1>
         <div onClick={changeTheme} className="container-dark-mode">
-          {theme === "Dark" ? (
-            <svg
-              width={"15px"}
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
-              />
-            </svg>
-          ) : (
-            <svg
-              width={"20px"}
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-              />
-            </svg>
-          )}
-
+          {theme === "Dark" ? <DarkIcon /> : <LightIcon />}
           <h4 className="title">{`${theme}`} Mode</h4>
         </div>
       </div>
