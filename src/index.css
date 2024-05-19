@@ -118,6 +118,9 @@ html .light {
   .container-filter {
     background-color: var(--elements-light);
   }
+  .arrow-option:hover {
+    background-color: rgb(248, 246, 246);
+  }
   .cards {
     & .card {
       background-color: var(--elements-light);

@@ -61,12 +61,13 @@ export default function Filter({ setFilter }) {
         <h3 className="filter-title">{filterName}</h3>
         <svg
           onClick={handleShow}
-          width={"15px"}
+          width={"19px"}
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
+          className={show ? "arrow-option rotate" : "arrow-option"}
         >
           <path
             strokeLinecap="round"
